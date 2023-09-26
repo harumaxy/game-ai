@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg5b4qx36q7ti"]
+
+[ext_resource type="Script" path="res://scenes/Vision/TurnAgent.gd" id="1_oo5ga"]
+[ext_resource type="Script" path="res://scenes/Vision/FaceTarget.gd" id="2_u3nsh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j8fry"]
+size = Vector3(0.3, 0.3, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_age86"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4xj75"]
+
+[node name="Agent" type="CharacterBody3D"]
+script = ExtResource("1_oo5ga")
+
+[node name="FaceTargetY" type="Node3D" parent="."]
+script = ExtResource("2_u3nsh")
+metadata/_edit_group_ = true
+
+[node name="FaceTargetX" type="Node3D" parent="FaceTargetY"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 1.48889, 0)
+script = ExtResource("2_u3nsh")
+metadata/_edit_group_ = true
+
+[node name="Pointer" type="MeshInstance3D" parent="FaceTargetY/FaceTargetX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.452221)
+mesh = SubResource("BoxMesh_j8fry")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FaceTargetY"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_age86")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FaceTargetY"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_4xj75")
+skeleton = NodePath("../..")
+
+[node name="Graphics" type="Node3D" parent="."]

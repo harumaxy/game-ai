@@ -1,0 +1,189 @@
+[gd_scene load_steps=25 format=3 uid="uid://dp1tchdn38u7a"]
+
+[ext_resource type="Script" path="res://scenes/HomingMissale/missile.gd" id="1_3w8yb"]
+[ext_resource type="Script" path="res://scenes/Vision/FaceTarget.gd" id="2_d78wb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxgw7"]
+albedo_color = Color(0.203922, 0.160784, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cl4wt"]
+material = SubResource("StandardMaterial3D_qxgw7")
+radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujlmv"]
+albedo_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_op3vx"]
+material = SubResource("StandardMaterial3D_ujlmv")
+size = Vector3(0.1, 1.2, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82llh"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+shadow_to_opacity = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_qyvu7"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -53.3625), 0.0, 0.0, 0, 0, Vector2(0.255831, 346.857), -1204.24, -1204.24, 0, 0, Vector2(0.381884, 7.62323), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ym7n7"]
+width = 2048
+curve = SubResource("Curve_qyvu7")
+
+[sub_resource type="Gradient" id="Gradient_ywtur"]
+offsets = PackedFloat32Array(0, 0.210306, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.129412, 1, 0.00392157, 0.00392157, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_448r8"]
+gradient = SubResource("Gradient_ywtur")
+
+[sub_resource type="Curve" id="Curve_3d443"]
+_data = [Vector2(0, 0.251187), 0.0, 0.0, 0, 0, Vector2(0.177749, 0.981745), 0.390052, 0.390052, 0, 0, Vector2(0.994289, 0.198248), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_opih5"]
+width = 2048
+curve = SubResource("Curve_3d443")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2dvyi"]
+direction = Vector3(2.08165e-12, 2.08165e-12, 1)
+spread = 3.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_curve = SubResource("CurveTexture_ym7n7")
+angle_max = 720.0
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_opih5")
+color_ramp = SubResource("GradientTexture1D_448r8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_hywcv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4rj6u"]
+radius = 0.4
+
+[sub_resource type="Curve" id="Curve_csw7w"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7h3rh"]
+width = 2048
+curve = SubResource("Curve_csw7w")
+
+[sub_resource type="Gradient" id="Gradient_5gnje"]
+offsets = PackedFloat32Array(0, 0.638211, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.133333, 0.0196078, 1, 0.239216, 0.239216, 0.239216, 0.917647)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u302n"]
+gradient = SubResource("Gradient_5gnje")
+
+[sub_resource type="Curve" id="Curve_rfvpj"]
+_data = [Vector2(0, 0.182366), 0.0, 0.0, 0, 0, Vector2(0.112272, 1), 0.0, 0.0, 0, 0, Vector2(0.55649, 0.325301), 0.0, 0.0, 0, 0, Vector2(0.993005, 0.0235487), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_xyec5"]
+curve = SubResource("Curve_rfvpj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4madt"]
+direction = Vector3(2.08165e-12, 2.08165e-12, 1)
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 50.0
+angular_velocity_min = 30.0
+angular_velocity_max = 40.0
+angular_velocity_curve = SubResource("CurveTexture_7h3rh")
+damping_min = 60.0
+damping_max = 60.0
+angle_max = 720.0
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_xyec5")
+color_ramp = SubResource("GradientTexture1D_u302n")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x1lbw"]
+
+[node name="Missile" type="CharacterBody3D"]
+script = ExtResource("1_3w8yb")
+
+[node name="FaceTargetY" type="Node3D" parent="."]
+script = ExtResource("2_d78wb")
+
+[node name="FaceTargetX" type="Node3D" parent="FaceTargetY"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("2_d78wb")
+
+[node name="DirRef" type="Marker3D" parent="FaceTargetY/FaceTargetX"]
+
+[node name="RemotePos" type="RemoteTransform3D" parent="FaceTargetY/FaceTargetX"]
+remote_path = NodePath("../../../Graphics")
+update_position = false
+update_scale = false
+
+[node name="RemotePos2" type="RemoteTransform3D" parent="FaceTargetY/FaceTargetX"]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+remote_path = NodePath("../../../CollisionShape3D")
+update_position = false
+update_scale = false
+
+[node name="Graphics" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Rocket" type="Node3D" parent="Graphics"]
+
+[node name="Pod" type="MeshInstance3D" parent="Graphics/Rocket"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_cl4wt")
+skeleton = NodePath("../../..")
+
+[node name="Fin" type="MeshInstance3D" parent="Graphics/Rocket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+mesh = SubResource("BoxMesh_op3vx")
+
+[node name="Fin2" type="MeshInstance3D" parent="Graphics/Rocket"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.7)
+mesh = SubResource("BoxMesh_op3vx")
+
+[node name="TrailParticles" type="GPUParticles3D" parent="Graphics"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1)
+material_override = SubResource("StandardMaterial3D_82llh")
+cast_shadow = 0
+amount = 64
+visibility_aabb = AABB(-25, -25, -25, 50, 50, 50)
+process_material = SubResource("ParticleProcessMaterial_2dvyi")
+draw_pass_1 = SubResource("QuadMesh_hywcv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, 3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_4rj6u")
+
+[node name="DeleteTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ExplodeTimer" type="Timer" parent="."]
+wait_time = 12.0
+one_shot = true
+autostart = true
+
+[node name="ExplosionParticle" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, -0.000139626, 0, 1, 0, 0.000139626, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_82llh")
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-53.1993, -61.167, -51.0539, 108.511, 106.754, 101.178)
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_4madt")
+draw_pass_1 = SubResource("QuadMesh_x1lbw")

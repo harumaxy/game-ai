@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b674ssq8xyokl"]
+
+[ext_resource type="Script" path="res://scenes/Pathfinding/agent.gd" id="1_o3ch3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lss0t"]
+albedo_color = Color(0.247059, 0.917647, 0.309804, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3nj11"]
+
+[node name="Agent" type="Node3D"]
+script = ExtResource("1_o3ch3")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0, 0.533333, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_lss0t")
+mesh = SubResource("CapsuleMesh_3nj11")
