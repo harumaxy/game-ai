@@ -13,6 +13,10 @@ config_version=5
 run/main_scene="res://scenes/Vision/level.tscn"
 config/features=PackedStringArray("4.1")
 
+[autoload]
+
+PathFindManager="*res://scenes/Pathfinding/PathFindManager.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/orbit-controls/plugin.cfg")

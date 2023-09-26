@@ -16,6 +16,7 @@ target_desired_distance = 0.5
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.533333, 1, 1)
+debug_path_custom_point_size = 4.9
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

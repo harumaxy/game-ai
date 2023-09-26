@@ -344,10 +344,10 @@ environment = SubResource("Environment_v5lud")
 
 [node name="Agent" parent="Chaisers" instance=ExtResource("2_3qwpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8611, 0.619904, 17.9187)
-debug = true
 
 [node name="Agent2" parent="Chaisers" instance=ExtResource("2_3qwpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0428, 0.619904, 17.9187)
+debug = true
 
 [node name="Agent3" parent="Chaisers" instance=ExtResource("2_3qwpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7783, 0.619904, 17.9187)
